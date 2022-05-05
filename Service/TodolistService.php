@@ -28,7 +28,7 @@ namespace Service {
             $todo = $this->todolistRepo->findAll();
             echo "TODOLIST" . PHP_EOL;
             foreach ($todo as $num => $value) {
-                echo "$num ." . $value->getTodolist() . PHP_EOL;
+                echo $value->getId() ." . ". $value->getTodolist() . PHP_EOL;
             }
         }
 
@@ -36,6 +36,7 @@ namespace Service {
         {
             $todolist = new TodolistEntity($todo);
             $this->todolistRepo->save($todolist);
+            echo "Berhasil tambah data". PHP_EOL;
         }
 
         function removeTodolist(int $number): void
